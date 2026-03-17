@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Garden — Ullal Upanagar, Bangalore</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue-primary: #167AB8; /* Logo main blue */
+  --blue-light:   #13A8DF; /* Logo light blue */
+  --blue-accent:  #2B3573; /* Logo dark blue */
+  --mint:    #A1C94A; /* Logo green */
+  --sky:     #13A8DF; /* Logo light blue */
+  --peach:   #F6AC1E; /* Logo yellow/orange */
+  --lemon:   #F6AC1E; /* Logo yellow */
+  --lilac:   #A9C2F0; 
+  --rose:    #D6343F; /* Logo red */
+  --white:   #FFFFFF;
+  --offwhite:#F4F9FB; /* Very light tint of main blue */
+  --deep:    #2B3573; /* Logo dark blue */
+  --text:    #2B3573; /* Dark Blue Text */
+  --muted:   #6B82A8; 
+  --card-bg: #FFFFFF;
+  --r: 20px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', 'Noto Sans Kannada', sans-serif;
+  background: var(--offwhite);
+  color: var(--text);
+  overflow-x: hidden;
+}
+body.lang-kn { font-family: 'Noto Sans Kannada', 'Nunito', sans-serif; }
+body.lang-kn h1, body.lang-kn h2, body.lang-kn h3, body.lang-kn h4 {
+  font-family: 'Noto Sans Kannada', sans-serif; line-height: 1.5;
+}
+
+/* ── LANGUAGE TOGGLE ── */
+.nav-actions { display: flex; align-items: center; gap: 1rem; }
+.lang-toggle {
+  display: flex; align-items: center; gap: 0.15rem;
+  background: var(--white); border: 2px solid var(--lilac);
+  border-radius: 50px; padding: 0.2rem 0.28rem;
+  box-shadow: 0 4px 16px rgba(43,53,115,0.12);
+  cursor: pointer; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.lang-toggle:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(43,53,115,0.2); border-color: var(--blue-primary); }
+.lang-pill {
+  padding: 0.28rem 0.9rem; border-radius: 50px;
+  font-size: 0.76rem; font-weight: 700; font-family: 'Nunito', sans-serif;
+  color: var(--muted); transition: all 0.22s ease; user-select: none;
+}
+.lang-pill.active { background: var(--lilac); color: var(--deep); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.5rem 3.5rem;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid rgba(22,122,184,0.15); /* Logo main blue border */
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.nav-logo-icon {
+  width: 42px; height: 42px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--rose), var(--peach));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 3px 12px rgba(22,122,184,0.35);
+}
+.nav-logo-text {
+  font-family: 'Baloo 2', cursive; font-size: 1.4rem; font-weight: 800;
+  color: var(--deep); line-height: 1;
+}
+.nav-logo-text span { color: var(--rose); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; font-size: 0.88rem; font-weight: 700;
+  color: var(--muted); transition: color 0.3s; letter-spacing: 0.02em;
+  position: relative;
+}
+body.lang-kn .nav-links a { font-size: 0.92rem; }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2.5px;
+  background: var(--blue-primary); border-radius: 2px; transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.nav-links a:hover { color: var(--blue-primary); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+  color: white; padding: 0.55rem 1.4rem; border-radius: 50px;
+  font-size: 0.84rem; font-weight: 800; text-decoration: none;
+  box-shadow: 0 4px 16px rgba(22,122,184,0.3);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+body.lang-kn .nav-cta { font-size: 0.88rem; }
+.nav-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 8px 24px rgba(22,122,184,0.45); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center; padding: 8rem 3.5rem 2rem;
+  position: relative; overflow: hidden;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4) 0%, rgba(240, 248, 255, 0.45) 40%, rgba(245, 255, 248, 0.4) 100%), url('storeimage.png') center/cover fixed;
+}
+
+/* Floating blobs */
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); pointer-events: none; }
+.blob-1 { width:500px;height:500px; background:rgba(22,122,184,0.18); top:-100px; left:-80px; animation: drift1 12s ease-in-out infinite; }
+.blob-2 { width:400px;height:400px; background:rgba(161,201,74,0.18); bottom:-80px; right:5%; animation: drift2 15s ease-in-out infinite; }
+.blob-3 { width:300px;height:300px; background:rgba(169,194,240,0.2); top:30%; left:40%; animation: drift1 10s ease-in-out infinite reverse; }
+@keyframes drift1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,-30px)} }
+@keyframes drift2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,20px)} }
+
+/* Floating emojis background */
+.float-decor {
+  position: absolute; font-size: 2rem; opacity: 0.15; pointer-events: none;
+  animation: floatUp 8s ease-in-out infinite;
+}
+.float-decor:nth-child(1) { top:15%; left:8%; animation-delay:0s; }
+.float-decor:nth-child(2) { top:70%; left:5%; animation-delay:2s; font-size:1.5rem; }
+.float-decor:nth-child(3) { top:20%; right:8%; animation-delay:4s; }
+.float-decor:nth-child(4) { top:65%; right:6%; animation-delay:1s; font-size:1.8rem; }
+.float-decor:nth-child(5) { top:45%; left:2%; animation-delay:3s; font-size:1.3rem; }
+@keyframes floatUp { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(-18px) rotate(8deg)} }
+
+.hero-text { position: relative; z-index: 2; }
+
+.hero-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: white; border: 2px solid var(--lilac);
+  border-radius: 50px; padding: 0.35rem 1rem;
+  font-size: 0.78rem; font-weight: 700; color: var(--lilac);
+  margin-bottom: 1.5rem; letter-spacing: 0.04em;
+}
+body.lang-kn .hero-chip { font-size: 0.85rem; letter-spacing: 0; }
+
+h1 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 800; line-height: 1.1;
+  color: var(--deep); margin-bottom: 1.2rem;
+  text-shadow: 0 2px 16px rgba(255,255,255,0.9), 0 2px 4px rgba(255,255,255,0.5);
+}
+h1 .wave { color: var(--rose); }
+h1 .wave2 { color: var(--mint); }
+
+.hero-sub {
+  font-size: 1.05rem; line-height: 1.75; color: var(--deep);
+  max-width: 460px; margin-bottom: 2.2rem; font-weight: 700;
+  text-shadow: 0 2px 10px rgba(255,255,255,0.9), 0 1px 3px rgba(255,255,255,0.8);
+}
+
+.hero-btns { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.btn-main {
+  background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+  color: white; padding: 0.85rem 2rem; border-radius: 50px;
+  font-size: 0.92rem; font-weight: 800; text-decoration: none;
+  box-shadow: 0 6px 20px rgba(22,122,184,0.3);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  font-family: 'Nunito', sans-serif;
+  position: relative; overflow: hidden;
+}
+body.lang-kn .btn-main { font-family: 'Noto Sans Kannada', sans-serif; font-size: 0.95rem; }
+.btn-main::after {
+  content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-20deg); transition: 0s;
+}
+.btn-main:hover { 
+  transform: translateY(-4px) scale(1.02); 
+  box-shadow: 0 12px 28px rgba(22,122,184,0.45); 
+}
+.btn-main:hover::after {
+  left: 150%; transition: left 0.6s ease-in-out;
+}
+.btn-outline {
+  background: white; color: var(--deep); padding: 0.83rem 1.8rem;
+  border-radius: 50px; font-size: 0.92rem; font-weight: 800;
+  text-decoration: none; border: 2px solid var(--lilac);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); font-family: 'Nunito', sans-serif;
+}
+body.lang-kn .btn-outline { font-family: 'Noto Sans Kannada', sans-serif; }
+.btn-outline:hover { 
+  background: var(--lilac); color: white; border-color: var(--lilac); 
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(169,194,240,0.4);
+}
+
+.hero-stats {
+  display: flex; gap: 1.8rem; margin-top: 2.5rem; flex-wrap: wrap;
+}
+.h-stat {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.h-stat-num {
+  font-family: 'Baloo 2', cursive; font-size: 1.6rem; font-weight: 800;
+  color: var(--blue-primary); line-height: 1;
+  text-shadow: 0 2px 8px rgba(255,255,255,0.9);
+}
+.h-stat-label { font-size: 0.8rem; color: var(--deep); font-weight: 700; line-height: 1.2; text-shadow: 0 1px 4px rgba(255,255,255,0.8); }
+
+/* Hero right side — product showcase */
+.hero-visual {
+  position: relative; z-index: 2;
+  display: flex; justify-content: center; align-items: center;
+}
+.hero-card-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  transform: rotate(-3deg);
+}
+.hero-prod-card {
+  background: white; border-radius: 20px; padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(43,53,115,0.1);
+  text-align: center; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  border: 2px solid transparent; position: relative;
+}
+.hero-prod-card:hover { 
+  transform: translateY(-8px) scale(1.05) rotate(0deg) !important; 
+  box-shadow: 0 16px 40px rgba(43,53,115,0.15), 0 0 0 4px rgba(255,255,255,0.5); 
+  z-index: 10;
+}
+.hero-prod-card:nth-child(1) { border-color: rgba(22,122,184,0.3); animation: cardFloat 5s ease-in-out infinite; }
+.hero-prod-card:nth-child(2) { border-color: rgba(161,201,74,0.3); animation: cardFloat 5s ease-in-out infinite 1s; margin-top: 1.5rem; }
+.hero-prod-card:nth-child(3) { border-color: rgba(169,194,240,0.3); animation: cardFloat 5s ease-in-out infinite 0.5s; margin-top: -1rem; }
+.hero-prod-card:nth-child(4) { border-color: rgba(255,176,133,0.3); animation: cardFloat 5s ease-in-out infinite 1.5s; }
+@keyframes cardFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.hero-prod-card .p-emoji { font-size: 2.8rem; display: block; margin-bottom: 0.5rem; }
+.hero-prod-card .p-name { font-size: 0.78rem; font-weight: 700; color: var(--text); }
+.hero-prod-card .p-tag {
+  display: inline-block; margin-top: 0.4rem;
+  font-size: 0.65rem; font-weight: 800; padding: 0.15rem 0.55rem;
+  border-radius: 50px; letter-spacing: 0.05em;
+}
+.tag-rose { background: rgba(22,122,184,0.15); color: var(--rose); }
+.tag-mint { background: rgba(161,201,74,0.15); color: #3daa82; }
+.tag-lilac { background: rgba(169,194,240,0.2); color: #8a5fd4; }
+.tag-peach { background: rgba(255,176,133,0.2); color: #cc6a20; }
+
+/* ── CATEGORIES ── */
+.categories {
+  padding: 3.5rem 3.5rem;
+  background: white;
+}
+.sec-head { text-align: center; margin-bottom: 2rem; }
+.sec-chip {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--offwhite); border: 2px solid var(--peach);
+  border-radius: 50px; padding: 0.3rem 1rem;
+  font-size: 0.75rem; font-weight: 800; color: var(--peach);
+  letter-spacing: 0.06em; margin-bottom: 1rem; text-transform: uppercase;
+}
+body.lang-kn .sec-chip { text-transform: none; font-size: 0.85rem; letter-spacing: 0; }
+h2 {
+  font-family: 'Baloo 2', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800;
+  color: var(--deep); line-height: 1.2;
+}
+.sec-sub { font-size: 1rem; color: var(--muted); margin-top: 0.5rem; font-weight: 500; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+
+.cat-card.c1 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Soft toys.png') center/cover; }
+.cat-card.c2 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Baby clothing.png') center/cover; }
+.cat-card.c3 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Educational baby toys.png') center/cover; }
+.cat-card.c4 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Feeding bottle.png') center/cover; }
+.cat-card.c5 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Bath and care.png') center/cover; }
+.cat-card.c6 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Gift sets .png') center/cover; }
+.cat-card.c7 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Ride on toys.png') center/cover; }
+.cat-card.c8 { background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)), url('Nursery essentials.png') center/cover; }
+
+.cat-card {
+  border-radius: 24px; padding: 2rem 1.4rem;
+  text-align: center; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+  min-height: 180px;
+}
+.cat-card.scroll-hidden {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+}
+.cat-card.scroll-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.cat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0); transition: background 0.4s ease; z-index: 1;
+}
+.cat-card > * { position: relative; z-index: 2; transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.cat-card:hover { 
+  transform: translateY(-10px); 
+  box-shadow: 0 20px 40px rgba(43,53,115,0.2), 0 8px 16px rgba(43,53,115,0.1); 
+}
+.cat-card:hover::before { background: rgba(255,255,255,0.1); }
+.cat-card:hover .cat-name { transform: scale(1.08) translateY(-4px); box-shadow: 0 4px 12px rgba(43,53,115,0.08); }
+.cat-card:hover .cat-count { transform: translateY(-4px); }
+
+.cat-emoji { font-size: 2.8rem; margin-bottom: 0.8rem; display: none; /* Hide emoji since we have images now */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+.cat-name { font-weight: 800; font-size: 1.1rem; color: var(--deep); line-height: 1.3; background: rgba(255,255,255,0.85); padding: 0.2rem 0.5rem; border-radius: 8px; display: inline-block; margin: 0 auto; }
+.cat-count { font-size: 0.85rem; color: var(--deep); font-weight: 700; margin-top: 0.3rem; background: rgba(255,255,255,0.85); padding: 0.1rem 0.4rem; border-radius: 6px; display: inline-block; margin-left: auto; margin-right: auto; }
+
+/* ── FEATURES ── */
+.features {
+  padding: 3.5rem 3.5rem;
+  background: linear-gradient(135deg, #FFF0F8 0%, #F0F8FF 100%);
+  position: relative; overflow: hidden;
+}
+.features-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+}
+.feat-text h2 { text-align: left; }
+.feat-text .sec-chip { text-align: left; }
+.feat-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.feat-card {
+  display: flex; align-items: center; gap: 1.2rem;
+  background: white; border-radius: 16px; padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 16px rgba(43,53,115,0.07);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.feat-card.fc1 {
+  background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="2.5" fill="%23167AB8" fill-opacity="0.25"/><rect x="45" y="10" width="5" height="5" fill="%2313A8DF" fill-opacity="0.25" transform="rotate(30 47.5 12.5)"/><polygon points="30,45 34,53 26,53" fill="%23167AB8" fill-opacity="0.25"/><circle cx="50" cy="40" r="3" fill="%2313A8DF" fill-opacity="0.25"/><rect x="10" y="45" width="4" height="4" fill="%23167AB8" fill-opacity="0.2" transform="rotate(60 12 47)"/><circle cx="30" cy="5" r="1.5" fill="%2313A8DF" fill-opacity="0.2"/></svg>');
+}
+.feat-card.fc2 {
+  background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="8" fill="none" stroke="%23A1C94A" stroke-width="1.5" stroke-opacity="0.25"/><circle cx="20" cy="20" r="3" fill="%23A1C94A" fill-opacity="0.25"/></svg>');
+}
+.feat-card.fc3 {
+  background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="3" fill="%23D6343F" fill-opacity="0.25"/><rect x="40" y="20" width="6" height="6" fill="%23A9C2F0" fill-opacity="0.25" transform="rotate(45 43 23)"/><circle cx="20" cy="40" r="4" fill="%23F6AC1E" fill-opacity="0.25"/><polygon points="50,45 55,55 45,55" fill="%23A1C94A" fill-opacity="0.25"/></svg>');
+}
+.feat-card.fc4 {
+  background-image: url('data:image/svg+xml;utf8,<svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="8" fill="none" stroke="%23F6AC1E" stroke-width="1.5" stroke-opacity="0.25"/><path d="M22 24 Q 25 28 28 24" fill="none" stroke="%23F6AC1E" stroke-width="1.5" stroke-opacity="0.25"/><circle cx="23" cy="22" r="1" fill="%23F6AC1E" fill-opacity="0.25"/><circle cx="27" cy="22" r="1" fill="%23F6AC1E" fill-opacity="0.25"/></svg>');
+}
+.feat-card:hover { transform: translateX(8px) scale(1.01); box-shadow: 0 8px 24px rgba(43,53,115,0.12); }
+.feat-icon {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+}
+.feat-icon.fi1 { background: rgba(22,122,184,0.15); }
+.feat-icon.fi2 { background: rgba(161,201,74,0.15); }
+.feat-icon.fi3 { background: rgba(169,194,240,0.2); }
+.feat-icon.fi4 { background: rgba(255,224,102,0.25); }
+.feat-title { font-weight: 800; font-size: 0.95rem; color: var(--deep); margin-bottom: 0.2rem; }
+.feat-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+.feat-visual {
+  position: relative; display: flex; justify-content: center; align-items: center;
+  perspective: 1200px;
+  width: 100%; min-height: 450px;
+}
+.tilt-wrapper {
+  position: relative; display: flex; justify-content: center; align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  width: 400px; height: 400px;
+}
+
+.big-circle-ring {
+  width: 360px; height: 360px; border-radius: 50%;
+  background: transparent;
+  border: 2px dashed rgba(169,194,240,0.4);
+  box-shadow: 
+    0 0 40px rgba(169,194,240,0.1),
+    inset 0 0 40px rgba(169,194,240,0.1);
+  display: flex; align-items: center; justify-content: center;
+  position: absolute;
+  top: 20px; left: 20px;
+  animation: spinRing 25s linear infinite;
+  opacity: 0; transform: scale(0.8);
+}
+
+.tilt-wrapper.animate-in .big-circle-ring {
+  animation: ringExpand 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, spinRing 25s linear infinite 1s;
+}
+
+.big-circle-inner {
+  width: 240px; height: 240px; border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #f9fcff);
+  box-shadow: 
+    -10px -10px 30px rgba(255,255,255,0.9),
+    15px 15px 40px rgba(43,53,115,0.08);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.5rem;
+  z-index: 10;
+  opacity: 0; transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.tilt-wrapper.animate-in .big-circle-inner {
+  animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.big-emoji { 
+  font-size: 5.5rem; 
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15)); 
+  margin-bottom: 0.2rem;
+}
+.big-text { 
+  font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 800; 
+  color: var(--deep); 
+}
+
+@keyframes spinRing { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(360deg); } 
+}
+@keyframes keepUpright { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(-360deg); } 
+}
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  80% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes ringExpand {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.orbit-container {
+  position: absolute;
+  width: 100%; height: 100%;
+}
+
+.orbit-item-wrapper {
+  position: absolute;
+  width: 66px; height: 66px;
+  top: -33px; left: 50%; margin-left: -33px;
+  transform-origin: 33px 213px; /* 180px radius + 33px offset = 213px */
+}
+
+/* Distribution for 5 items: 0, 72, 144, 216, 288 */
+.oi-wrap-1 { transform: rotate(0deg); opacity: 1; }
+.oi-wrap-2 { transform: rotate(72deg); opacity: 1; }
+.oi-wrap-3 { transform: rotate(144deg); opacity: 1; }
+.oi-wrap-4 { transform: rotate(216deg); opacity: 1; }
+.oi-wrap-5 { transform: rotate(288deg); opacity: 1; }
+
+.oi-upright {
+  width: 100%; height: 100%;
+  animation: keepUpright 25s linear infinite;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.oi-counter-1 { transform: rotate(0deg); width: 100%; height: 100%; }
+.oi-counter-2 { transform: rotate(-72deg); width: 100%; height: 100%; }
+.oi-counter-3 { transform: rotate(-144deg); width: 100%; height: 100%; }
+.oi-counter-4 { transform: rotate(-216deg); width: 100%; height: 100%; }
+.oi-counter-5 { transform: rotate(-288deg); width: 100%; height: 100%; }
+
+.oi-entrancer {
+  opacity: 0; transform: scale(0.5);
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+}
+.tilt-wrapper.animate-in .oi-entrancer {
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.tilt-wrapper.animate-in .oi-wrap-1 .oi-entrancer { animation-delay: 1.2s; }
+.tilt-wrapper.animate-in .oi-wrap-2 .oi-entrancer { animation-delay: 1.4s; }
+.tilt-wrapper.animate-in .oi-wrap-3 .oi-entrancer { animation-delay: 1.6s; }
+.tilt-wrapper.animate-in .oi-wrap-4 .oi-entrancer { animation-delay: 1.8s; }
+.tilt-wrapper.animate-in .oi-wrap-5 .oi-entrancer { animation-delay: 2.0s; }
+
+.feat-visual:hover .big-circle-ring,
+.feat-visual:hover .oi-upright,
+.feat-visual:hover .oi-content {
+  animation-play-state: paused;
+}
+
+.oi-content {
+  width: 66px; height: 66px; border-radius: 50%;
+  background: white; 
+  box-shadow: 0 10px 24px rgba(43,53,115,0.12);
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+  animation: floatBob 3s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative; cursor: pointer;
+}
+.oi-wrap-1 .oi-content { animation-delay: 0s; }
+.oi-wrap-2 .oi-content { animation-delay: 1s; }
+.oi-wrap-3 .oi-content { animation-delay: 2s; }
+.oi-wrap-4 .oi-content { animation-delay: 1.5s; }
+.oi-wrap-5 .oi-content { animation-delay: 0.5s; }
+
+.oi-content:hover { transform: scale(1.15) translateY(-5px) !important; z-index: 100; }
+
+.oi-tooltip {
+  position: absolute; top: -38px;
+  background: var(--deep); color: white;
+  padding: 5px 12px; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 700;
+  pointer-events: none; opacity: 0;
+  transform: translateY(10px) scale(0.9);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(43,53,115,0.25);
+}
+.oi-tooltip::after {
+  content: ''; position: absolute; bottom: -5px; left: 50%; margin-left: -5px;
+  border-width: 5px 5px 0; border-style: solid; border-color: var(--deep) transparent transparent transparent;
+}
+.oi-content:hover .oi-tooltip {
+  opacity: 1; transform: translateY(0) scale(1);
+}
+
+/* ── REVIEWS ── */
+.reviews {
+  padding: 5rem 3.5rem; 
+  background: linear-gradient(rgba(244, 249, 251, 0.70), rgba(244, 249, 251, 0.80)), url('Shop Interior.png') center/cover fixed;
+  position: relative;
+}
+.sec-head { text-align: center; margin-bottom: 2.5rem; position: relative; z-index: 2; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; position: relative; z-index: 2; perspective: 1000px; }
+.review-card {
+  background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px);
+  border-radius: 20px; padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.6); 
+  box-shadow: 0 10px 30px rgba(43,53,115,0.08);
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px) rotateX(10deg);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.review-card.animate-magic {
+  animation: magicEntrance 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.review-card:nth-child(1).animate-magic { animation-delay: 0.1s; }
+.review-card:nth-child(2).animate-magic { animation-delay: 0.25s; }
+.review-card:nth-child(3).animate-magic { animation-delay: 0.4s; }
+
+@keyframes magicEntrance {
+  0% { opacity: 0; transform: translateY(40px) rotateX(10deg); }
+  100% { opacity: 1; transform: translateY(0) rotateX(0deg); }
+}
+
+.review-card::before {
+  content: '"'; position: absolute; top: 1rem; right: 1.5rem;
+  font-family: 'Baloo 2', cursive; font-size: 4rem; color: rgba(22,122,184,0.15);
+  line-height: 1; transition: color 0.4s;
+}
+.review-card:hover { 
+  border-color: rgba(22,122,184,0.4); 
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(22,122,184,0.12), 0 0 20px rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.9);
+}
+.review-card:hover::before { color: rgba(22,122,184,0.3); }
+.review-stars { color: var(--lemon); font-size: 1rem; margin-bottom: 0.8rem; letter-spacing: 0.05em; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1)); }
+.review-text { font-size: 0.9rem; line-height: 1.7; color: var(--muted); margin-bottom: 1.2rem; font-style: italic; }
+body.lang-kn .review-text { font-style: normal; }
+.review-author { display: flex; align-items: center; gap: 0.8rem; }
+.rev-avatar {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 800; color: white;
+}
+.rev-name { font-weight: 800; font-size: 0.88rem; color: var(--deep); }
+.rev-tag { font-size: 0.72rem; color: var(--muted); }
+
+/* ── INFO BANNER ── */
+.info-banner {
+  padding: 2.5rem 3.5rem;
+  background: linear-gradient(135deg, rgba(43, 53, 115, 0.85), rgba(61, 43, 107, 0.9)), url('Shop Interior.png') center/cover fixed;
+  position: relative; overflow: hidden;
+}
+.info-banner::before {
+  content: ''; position: absolute; top: -50%; right: -5%;
+  width: 400px; height: 400px; border-radius: 50%;
+  background: rgba(169,194,240,0.1); pointer-events: none;
+}
+.info-banner::after {
+  content: ''; position: absolute; bottom: -30%; left: 5%;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(22,122,184,0.08); pointer-events: none;
+}
+.info-inner {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; align-items: center;
+}
+.info-block { text-align: center; }
+.info-icon { font-size: 2rem; margin-bottom: 0.7rem; }
+.info-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.12em; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+body.lang-kn .info-label { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+.info-val { font-size: 0.92rem; font-weight: 700; color: white; line-height: 1.5; }
+.info-divider { width: 1px; height: 80px; background: rgba(255,255,255,0.1); margin: 0 auto; }
+
+/* ── VISIT ── */
+.visit {
+  padding: 3.5rem 3.5rem;
+  background: linear-gradient(135deg, #FFF5F9 0%, #F5F0FF 100%);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+}
+.visit-text h2 { text-align: left; }
+.visit-text .sec-chip { text-align: left; }
+
+.visit-info-cards { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
+.vi-card {
+  display: flex; gap: 1rem; background: white; border-radius: 16px; padding: 1.2rem 1.5rem;
+  box-shadow: 0 4px 14px rgba(43,53,115,0.05);
+  align-items: flex-start; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.vi-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(43,53,115,0.1); }
+.vi-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.vi-icon.vi1 { background: rgba(22,122,184,0.15); }
+.vi-icon.vi2 { background: rgba(161,201,74,0.15); }
+.vi-icon.vi3 { background: rgba(169,194,240,0.2); }
+.vi-icon.vi4 { background: rgba(255,224,102,0.2); }
+.vi-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.25rem; }
+body.lang-kn .vi-label { text-transform: none; letter-spacing: 0; font-size: 0.8rem; }
+.vi-val { font-size: 0.9rem; font-weight: 700; color: var(--deep); line-height: 1.5; }
+
+.cta-box {
+  margin-top: 1.8rem; background: linear-gradient(135deg, var(--blue-primary), var(--blue-light));
+  border-radius: 20px; padding: 1.8rem; color: white;
+}
+.cta-box h4 { font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 800; margin-bottom: 0.4rem; }
+body.lang-kn .cta-box h4 { font-family: 'Noto Sans Kannada', sans-serif; }
+.cta-box p { font-size: 0.88rem; opacity: 0.85; margin-bottom: 1.2rem; line-height: 1.6; }
+.cta-phone {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: white; color: var(--blue-primary); padding: 0.65rem 1.4rem;
+  border-radius: 50px; font-weight: 800; font-size: 0.95rem;
+  text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.cta-phone:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+.map-box {
+  background: white; border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(43,53,115,0.1);
+  overflow: hidden; border: 3px solid var(--lilac);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.map-box:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(43,53,115,0.15); border-color: var(--blue-primary); }
+.map-img {
+  height: 280px; background: linear-gradient(135deg, #E8F4EA, #F0E8FF);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.8rem; font-size: 3rem; overflow: hidden;
+}
+.map-img img { transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+.map-box:hover .map-img img { transform: scale(1.05); }
+.map-img p { font-size: 0.88rem; color: var(--muted); text-align: center; font-weight: 600; }
+.map-footer {
+  padding: 1.2rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+}
+.map-name { font-family: 'Baloo 2', cursive; font-weight: 800; color: var(--deep); font-size: 1.1rem; }
+.map-sub { font-size: 0.78rem; color: var(--muted); }
+.map-btn {
+  background: var(--deep); color: white; padding: 0.55rem 1.2rem;
+  border-radius: 50px; font-size: 0.8rem; font-weight: 800;
+  text-decoration: none; transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  white-space: nowrap;
+}
+.map-btn:hover { background: var(--blue-accent); transform: translateY(-3px); box-shadow: 0 6px 16px rgba(43,53,115,0.2); }
+
+.map-highlights { margin-top: 1.2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--blue-primary); color: rgba(255,255,255,0.8);
+  padding: 2rem 3.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-brand { display: flex; align-items: center; gap: 0.6rem; }
+.footer-brand-text { font-family: 'Baloo 2', cursive; font-size: 1.2rem; font-weight: 800; color: white; }
+.footer-brand-text span { color: var(--rose); }
+.footer-copy { font-size: 0.78rem; }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--blue-light); }
+
+/* ── ANIMATIONS ── */
+.fade-up { opacity: 0; transform: translateY(35px); }
+body.loaded .fade-up { animation: fadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+.fade-up.d1{animation-delay:.3s} .fade-up.d2{animation-delay:.45s}
+.fade-up.d3{animation-delay:.6s} .fade-up.d4{animation-delay:.75s} .fade-up.d5{animation-delay:.9s}
+@keyframes fadeUp { to { opacity: 1; transform: none; } }
+
+/* ── RESPONSIVE DESIGN (MOBILE-FIRST ADAPTATIONS) ── */
+@media (max-width: 1024px) {
+  .hero, .categories, .features, .reviews, .visit, footer { padding-left: 2rem; padding-right: 2rem; }
+  .cat-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0.5rem 1rem; flex-wrap: nowrap; justify-content: space-between; gap: 0.5rem; }
+  .nav-logo img { height: 60px !important; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; background: none; border: none; font-size: 1.8rem; color: var(--deep); cursor: pointer; }
+  .nav-links.active {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(255,255,255,0.98); padding: 1.5rem; border-bottom: 2px solid var(--lilac);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; align-items: center; gap: 1.5rem;
+  }
+  .nav-cta { padding: 0.4rem 1rem; font-size: 0.75rem; margin-right: 0;}
+  
+  .hero { 
+    grid-template-columns: 1fr; 
+    padding: 8.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .hero-text { margin-bottom: 2rem; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-btns { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  
+  .hero-visual { padding-top: 1rem; }
+  .hero-card-grid { transform: rotate(0deg); gap: 0.8rem; }
+  .hero-prod-card { padding: 1rem; }
+  .hero-prod-card:nth-child(2), .hero-prod-card:nth-child(3) { margin-top: 0; }
+  
+  .categories, .features, .reviews, .visit, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .cat-grid { gap: 0.8rem; }
+  .cat-card { padding: 1.5rem 1rem; }
+  
+  .features-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .feat-text h2 { text-align: center; }
+  .feat-text .sec-chip { margin-left: auto; margin-right: auto; display: flex; width: fit-content; }
+  
+  .reviews-grid { grid-template-columns: 1fr; gap: 1rem; }
+  
+  .visit { grid-template-columns: 1fr; gap: 2rem; }
+  
+  footer { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 480px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; background: none; border: none; font-size: 1.8rem; color: var(--deep); cursor: pointer; }
+  .nav-links.active {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0;
+    background: rgba(255,255,255,0.98); padding: 1rem; border-bottom: 2px solid var(--lilac);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 1000; align-items: center; gap: 1.5rem;
+  }
+  .nav-logo img { height: 48px !important; }
+  nav { justify-content: space-between; padding: 0.5rem 1rem; }
+  .nav-cta { padding: 0.4rem 0.8rem; font-size: 0.75rem; margin-right: 0;}
+  
+  .hero-card-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; transform: rotate(0deg); width: 100%; margin-top: 1rem; }
+  .hero-prod-card { padding: 1rem 0.5rem; border-radius: 12px; }
+  .hero-prod-card .p-emoji { font-size: 2.2rem; }
+  .hero-prod-card .p-name { font-size: 0.75rem; }
+  .hero-prod-card .p-tag { font-size: 0.6rem; }
+  h1 { font-size: 2.2rem; }
+  .hero-stats { flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+  .h-stat { flex-basis: 40%; justify-content: center; }
+  .h-stat-num { font-size: 1.4rem; }
+  .btn-main, .btn-outline { width: 100%; text-align: center; }
+  .lang-wrap { position: fixed; top: auto; bottom: 1.5rem; left: 1rem; right: auto; z-index: 9999; }
+  
+  .tilt-wrapper { transform: scale(0.65) !important; }
+  .feat-visual { min-height: 280px; }
+  .map-highlights { grid-template-columns: 1fr; }
+  .map-footer { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+  .map-btn { width: 100%; justify-content: center; }
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+  .cat-card { min-height: 140px; padding: 1rem; }
+}
+
+.mobile-menu-btn { display: none; }
+
+/* ── PRELOADER ── */
+#preloader {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: white;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.6s ease;
+}
+#preloader.hidden {
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+.preloader-logo {
+  width: 140px;
+  animation: logoPulse 1.8s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+@keyframes logoPulse {
+  0% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 0 rgba(22,122,184,0)); }
+  50% { transform: scale(1.05); opacity: 1; filter: drop-shadow(0 10px 20px rgba(22,122,184,0.2)); }
+  100% { transform: scale(0.95); opacity: 0.8; filter: drop-shadow(0 0 0 rgba(22,122,184,0)); }
+}
+</style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <img src="logobaby.png" alt="Baby Garden Loading" class="preloader-logo">
+</div>
+
+<!-- NAV -->
+<nav>
+  <button class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')">☰</button>
+  <div class="nav-logo">
+    <img src="logobaby.png" alt="Baby Garden Logo" style="height: 85px;">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#categories" data-i="nav_cat">Shop</a></li>
+    <li><a href="#features" data-i="nav_why">Why Us</a></li>
+    <li><a href="#reviews" data-i="nav_rev">Reviews</a></li>
+    <li><a href="#visit" data-i="nav_vis">Visit Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:+918088782987" class="nav-cta" data-i="nav_cta">📞 Call Us</a>
+    <div class="lang-wrap">
+      <div class="lang-toggle" onclick="toggleLang()" title="Switch Language">
+        <span class="lang-pill active" id="pEN">EN</span>
+        <span class="lang-pill" id="pKN">ಕನ್ನಡ</span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mockup Label -->
+<div style="position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 4px; font-size: 12px; z-index: 9999; pointer-events: none;">Animation Mockup View</div>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- floating blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <!-- floating emoji decor -->
+  <div class="float-decor">🐣</div>
+  <div class="float-decor">⭐</div>
+  <div class="float-decor">🌸</div>
+  <div class="float-decor">🎀</div>
+  <div class="float-decor">🍭</div>
+
+  <div class="hero-text">
+    <div class="hero-chip fade-up d1">
+      <span>📍</span>
+      <span data-i="hero_loc">Ullal Main Road, Bangalore</span>
+    </div>
+    <h1 class="fade-up d2">
+      <span data-i="hero_h1a">Everything</span><br>
+      <span class="wave" data-i="hero_h1b">Your Little One</span><br>
+      <span class="wave2" data-i="hero_h1c">Needs ✨</span>
+    </h1>
+    <p class="hero-sub fade-up d3" data-i="hero_sub">
+      Toys, clothing, baby essentials &amp; gifts — all under one roof. Trusted by families across Ullal Upanagar since day one.
+    </p>
+    <div class="hero-btns fade-up d4">
+      <a href="#categories" class="btn-main" data-i="hero_btn1">🛍️ Browse Collection</a>
+      <a href="#visit" class="btn-outline" data-i="hero_btn2">Find the Store →</a>
+    </div>
+    <div class="hero-stats fade-up d5">
+      <div class="h-stat">
+        <div>
+          <div class="h-stat-num">4.9★</div>
+          <div class="h-stat-label" data-i="hs1">Google<br>Rating</div>
+        </div>
+      </div>
+      <div class="h-stat">
+        <div>
+          <div class="h-stat-num">1000+</div>
+          <div class="h-stat-label" data-i="hs2">Products<br>in Store</div>
+        </div>
+      </div>
+      <div class="h-stat">
+        <div>
+          <div class="h-stat-num">7 days</div>
+          <div class="h-stat-label" data-i="hs3">Always<br>Open</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-up d3">
+    <div class="hero-card-grid">
+      <div class="hero-prod-card" style="background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('Soft toys.png') center/cover; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+        <div class="p-name" data-i="pc1">Soft Toys</div>
+        <span class="p-tag tag-rose" data-i="pc1t">New Arrivals</span>
+      </div>
+      <div class="hero-prod-card" style="background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('Baby clothing.png') center/cover; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+        <div class="p-name" data-i="pc2">Baby Clothing</div>
+        <span class="p-tag tag-mint" data-i="pc2t">All Sizes</span>
+      </div>
+      <div class="hero-prod-card" style="background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('Feeding bottle.png') center/cover; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+        <div class="p-name" data-i="pc3">Feeding</div>
+        <span class="p-tag tag-lilac" data-i="pc3t">Top Brands</span>
+      </div>
+      <div class="hero-prod-card" style="background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('GIft sets .png') center/cover; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center;">
+        <div class="p-name" data-i="pc4">Gift Sets</div>
+        <span class="p-tag tag-peach" data-i="pc4t">Perfect Gift</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="sec-head">
+    <div class="sec-chip">🛍️ <span data-i="cat_chip">What We Sell</span></div>
+    <h2 data-i="cat_h2">Shop by Category</h2>
+    <p class="sec-sub" data-i="cat_sub">Everything from newborn to 10 years — all trusted brands, all in one place</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card c1">
+      <span class="cat-emoji">🧸</span>
+      <div class="cat-name" data-i="c1">Soft Toys &amp; Plushies</div>
+      <div class="cat-count" data-i="c1c">Teddy bears, dolls &amp; more</div>
+    </div>
+    <div class="cat-card c2">
+      <span class="cat-emoji">👕</span>
+      <div class="cat-name" data-i="c2">Baby Clothing</div>
+      <div class="cat-count" data-i="c2c">Newborn to 10 years</div>
+    </div>
+    <div class="cat-card c3">
+      <span class="cat-emoji">🎮</span>
+      <div class="cat-name" data-i="c3">Educational Toys</div>
+      <div class="cat-count" data-i="c3c">Learning through play</div>
+    </div>
+    <div class="cat-card c4">
+      <span class="cat-emoji">🍼</span>
+      <div class="cat-name" data-i="c4">Feeding Essentials</div>
+      <div class="cat-count" data-i="c4c">Bottles, cups &amp; bibs</div>
+    </div>
+    <div class="cat-card c5">
+      <span class="cat-emoji">🛁</span>
+      <div class="cat-name" data-i="c5">Bath &amp; Care</div>
+      <div class="cat-count" data-i="c5c">Safe &amp; gentle products</div>
+    </div>
+    <div class="cat-card c6">
+      <span class="cat-emoji">🎁</span>
+      <div class="cat-name" data-i="c6">Gift Sets</div>
+      <div class="cat-count" data-i="c6c">Perfect for baby showers</div>
+    </div>
+    <div class="cat-card c7">
+      <span class="cat-emoji">🚗</span>
+      <div class="cat-name" data-i="c7">Ride-on Toys</div>
+      <div class="cat-count" data-i="c7c">Cars, bikes &amp; scooters</div>
+    </div>
+    <div class="cat-card c8">
+      <span class="cat-emoji">🛏️</span>
+      <div class="cat-name" data-i="c8">Nursery Essentials</div>
+      <div class="cat-count" data-i="c8c">Cribs, pillows &amp; mats</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="feat-text">
+      <div class="sec-chip">💛 <span data-i="why_chip">Why Baby Garden</span></div>
+      <h2 data-i="why_h2">Parents Love Us,<br>Babies Too 🌟</h2>
+      <div class="feat-cards">
+        <div class="feat-card fc1">
+          <div class="feat-icon fi1">🔒</div>
+          <div>
+            <div class="feat-title" data-i="f1t">100% Safe Products</div>
+            <div class="feat-desc" data-i="f1d">All toys and clothing are carefully selected for safety. No harmful materials, ever.</div>
+          </div>
+        </div>
+        <div class="feat-card fc2">
+          <div class="feat-icon fi2">💰</div>
+          <div>
+            <div class="feat-title" data-i="f2t">Affordable Prices</div>
+            <div class="feat-desc" data-i="f2d">Quality baby products that don't break the bank. Great value at every budget.</div>
+          </div>
+        </div>
+        <div class="feat-card fc3">
+          <div class="feat-icon fi3">🎨</div>
+          <div>
+            <div class="feat-title" data-i="f3t">Wide Variety</div>
+            <div class="feat-desc" data-i="f3d">1000+ products across all categories — toys, clothing, essentials and gifts all in one store.</div>
+          </div>
+        </div>
+        <div class="feat-card fc4">
+          <div class="feat-icon fi4">😊</div>
+          <div>
+            <div class="feat-title" data-i="f4t">Friendly Staff</div>
+            <div class="feat-desc" data-i="f4d">Our team is always ready to help you find exactly what your child needs.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-visual" id="interactive-visual-container">
+      <div class="tilt-wrapper" id="interactive-tilt">
+        <div class="big-circle-ring">
+          <div class="orbit-container">
+            <div class="orbit-item-wrapper oi-wrap-1">
+              <div class="oi-upright">
+                <div class="oi-counter-1">
+                  <div class="oi-entrancer">
+                    <div class="oi-content">
+                      🎀
+                      <div class="oi-tooltip">Clothing</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-item-wrapper oi-wrap-2">
+              <div class="oi-upright">
+                <div class="oi-counter-2">
+                  <div class="oi-entrancer">
+                    <div class="oi-content">
+                      🍼
+                      <div class="oi-tooltip">Feeding</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-item-wrapper oi-wrap-3">
+              <div class="oi-upright">
+                <div class="oi-counter-3">
+                  <div class="oi-entrancer">
+                    <div class="oi-content">
+                      👟
+                      <div class="oi-tooltip">Footwear</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-item-wrapper oi-wrap-4">
+              <div class="oi-upright">
+                <div class="oi-counter-4">
+                  <div class="oi-entrancer">
+                    <div class="oi-content">
+                      🧸
+                      <div class="oi-tooltip">Toys</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="orbit-item-wrapper oi-wrap-5">
+              <div class="oi-upright">
+                <div class="oi-counter-5">
+                  <div class="oi-entrancer">
+                    <div class="oi-content">
+                      🎁
+                      <div class="oi-tooltip">Gifts</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="big-circle-inner">
+          <div class="big-emoji">👶</div>
+          <div class="big-text" data-i="big_txt">Baby Garden</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="sec-head">
+    <div class="sec-chip">💬 <span data-i="rev_chip">Happy Parents</span></div>
+    <h2 data-i="rev_h2">What Our Customers Say</h2>
+    <p class="sec-sub" data-i="rev_sub">Rated 4.9 ★ on Google · Ullal Upanagar's favourite baby store</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i="r1">"Varieties of products to explore and buy — one shop for kids' toys and all necessary things! Love this place."</p>
+      <div class="review-author">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,var(--rose),var(--peach))">S</div>
+        <div><div class="rev-name">Sunita R.</div><div class="rev-tag" data-i="r_google">Google Review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i="r2">"Great baby toy shop with a wide variety of quality toys. The toys are safe, colorful, and perfect for kids of all ages. Staff are friendly and helpful. Highly recommended!"</p>
+      <div class="review-author">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,var(--mint),var(--sky))">P</div>
+        <div><div class="rev-name">Pradeep K.</div><div class="rev-tag" data-i="r_google">Google Review</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text" data-i="r3">"One of the best baby toy shops in the area. Clean store, well-organized, and lots of safe and creative toys for babies and toddlers. Customer service is outstanding!"</p>
+      <div class="review-author">
+        <div class="rev-avatar" style="background:linear-gradient(135deg,var(--lilac),var(--sky))">A</div>
+        <div><div class="rev-name">Anita M.</div><div class="rev-tag" data-i="r_google">Google Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BANNER -->
+<section class="info-banner">
+  <div class="info-inner">
+    <div class="info-block">
+      <div class="info-icon">📍</div>
+      <div class="info-label" data-i="ib1l">Location</div>
+      <div class="info-val" data-i="ib1v">Mathrushree Complex,<br>Ullal Main Road, Bangalore</div>
+    </div>
+    <div class="info-divider"></div>
+    <div class="info-block">
+      <div class="info-icon">🕐</div>
+      <div class="info-label" data-i="ib2l">Open Hours</div>
+      <div class="info-val" data-i="ib2v">Mon – Sun<br>10:00 AM – 10:00 PM</div>
+    </div>
+    <div class="info-divider"></div>
+    <div class="info-block">
+      <div class="info-icon">📞</div>
+      <div class="info-label" data-i="ib3l">Call / WhatsApp</div>
+      <div class="info-val">+91 80887 82987</div>
+    </div>
+    <div class="info-divider"></div>
+    <div class="info-block">
+      <div class="info-icon">⭐</div>
+      <div class="info-label" data-i="ib4l">Google Rating</div>
+      <div class="info-val" data-i="ib4v">4.9 Stars<br>19+ Reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="visit-text">
+    <div class="sec-chip">🗺️ <span data-i="vis_chip">Visit Us</span></div>
+    <h2 data-i="vis_h2">Come See Us<br>In Store!</h2>
+    <div class="visit-info-cards">
+      <div class="vi-card">
+        <div class="vi-icon vi1">📍</div>
+        <div>
+          <div class="vi-label" data-i="vi1l">Address</div>
+          <div class="vi-val" data-i="vi1v">Mathrushree Complex, #198 &amp; 199,<br>Ullal Main Road, Jnananjyothinagar,<br>Ullal Upanagar, Bangalore – 560056</div>
+        </div>
+      </div>
+      <div class="vi-card">
+        <div class="vi-icon vi2">🕐</div>
+        <div>
+          <div class="vi-label" data-i="vi2l">Store Hours</div>
+          <div class="vi-val" data-i="vi2v">Monday to Sunday: 10:00 AM – 10:00 PM<br><span style="color:var(--mint);font-size:0.82rem;">✓ Open all 7 days</span></div>
+        </div>
+      </div>
+      <div class="vi-card">
+        <div class="vi-icon vi3">📞</div>
+        <div>
+          <div class="vi-label" data-i="vi3l">Phone / WhatsApp</div>
+          <div class="vi-val"><a href="tel:+918088782987" style="color:var(--deep);text-decoration:none;">+91 80887 82987</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-box">
+      <h4 data-i="cta_h">Planning a visit? Call ahead! 📞</h4>
+      <p data-i="cta_p">We'll help you find the perfect product before you arrive — saving you time and making sure we have it in stock.</p>
+      <a href="tel:+918088782987" class="cta-phone">📞 +91 80887 82987</a>
+    </div>
+  </div>
+  <div>
+    <div class="map-box">
+      <div class="map-img" style="padding: 0; display: block; overflow: hidden; background: var(--bg);">
+        <img src="Shop photo.png" alt="Baby Garden Shop" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+      </div>
+      <div class="map-footer">
+        <div>
+          <div class="map-name">Baby Garden</div>
+          <div class="map-sub">Ullal Upanagar · Open 7 Days</div>
+        </div>
+        <a href="https://www.google.com/maps?rlz=1C1RXQR_enIN1095IN1095&gs_lcrp=EgZjaHJvbWUqDggAEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIGCAEQIxgnMhIIAhAuGBQYrwEYxwEYhwIYgAQyBwgDEAAYgAQyCAgEEAAYFhgeMggIBRAAGBYYHjIICAYQABgWGB4yBggHEEUYPNIBCDQ1MDZqMGo3qAIAsAIA&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=KZ0dNTMAP647MSW2vVFxQz_8&daddr=Mathrushree+Complex,+198+And+199,+Ullal+Main+Rd,+Annapurneshwari+Layout,+Jnananjyothinagar,+Railway+Layout,+Gnana+Bharathi,+Ullal,+Bengaluru,+Karnataka+560056" target="_blank" class="map-btn" data-i="map_btn">🗺 Open Maps</a>
+      </div>
+    </div>
+
+    <div class="map-highlights">
+      <div style="background:white;border-radius:16px;padding:1.3rem;box-shadow:0 3px 12px rgba(43,53,115,0.07);text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:0.4rem;">🚗</div>
+        <div style="font-size:0.78rem;font-weight:800;color:var(--deep)" data-i="near1">Near Amma Ashrama Circle</div>
+        <div style="font-size:0.72rem;color:var(--muted)" data-i="near1s">Easy to find landmark</div>
+      </div>
+      <div style="background:white;border-radius:16px;padding:1.3rem;box-shadow:0 3px 12px rgba(43,53,115,0.07);text-align:center;">
+        <div style="font-size:1.8rem;margin-bottom:0.4rem;">🅿️</div>
+        <div style="font-size:0.78rem;font-weight:800;color:var(--deep)" data-i="near2">Easy Parking Available</div>
+        <div style="font-size:0.72rem;color:var(--muted)" data-i="near2s">Ullal Main Road</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand" style="justify-content: center; margin-bottom: 1rem;">
+    <img src="logobaby.png" alt="Baby Garden Logo" style="height: 100px;">
+  </div>
+  <div class="footer-copy" data-i="ft_copy">© 2025 Baby Garden, Ullal Upanagar · All Rights Reserved</div>
+  <div class="footer-links">
+    <a href="#categories" data-i="fl1">Shop</a>
+    <a href="#features" data-i="fl2">About</a>
+    <a href="#reviews" data-i="fl3">Reviews</a>
+    <a href="#visit" data-i="fl4">Location</a>
+  </div>
+</footer>
+
+<script>
+const T = {
+  en: {
+    nav_cat:"Shop", nav_why:"Why Us", nav_rev:"Reviews", nav_vis:"Visit Us", nav_cta:"📞 Call Us",
+    hero_loc:"Ullal Main Road, Bangalore",
+    hero_h1a:"Everything", hero_h1b:"Your Little One", hero_h1c:"Needs ✨",
+    hero_sub:"Toys, clothing, baby essentials & gifts — all under one roof. Trusted by families across Ullal Upanagar since day one.",
+    hero_btn1:"🛍️ Browse Collection", hero_btn2:"Find the Store →",
+    hs1:"Google\nRating", hs2:"Products\nin Store", hs3:"Always\nOpen",
+    pc1:"Soft Toys", pc1t:"New Arrivals", pc2:"Baby Clothing", pc2t:"All Sizes",
+    pc3:"Feeding", pc3t:"Top Brands", pc4:"Gift Sets", pc4t:"Perfect Gift",
+    cat_chip:"What We Sell", cat_h2:"Shop by Category",
+    cat_sub:"Everything from newborn to 10 years — all trusted brands, all in one place",
+    c1:"Soft Toys & Plushies", c1c:"Teddy bears, dolls & more",
+    c2:"Baby Clothing", c2c:"Newborn to 10 years",
+    c3:"Educational Toys", c3c:"Learning through play",
+    c4:"Feeding Essentials", c4c:"Bottles, cups & bibs",
+    c5:"Bath & Care", c5c:"Safe & gentle products",
+    c6:"Gift Sets", c6c:"Perfect for baby showers",
+    c7:"Ride-on Toys", c7c:"Cars, bikes & scooters",
+    c8:"Nursery Essentials", c8c:"Cribs, pillows & mats",
+    why_chip:"Why Baby Garden", why_h2:"Parents Love Us,\nBabies Too 🌟",
+    f1t:"100% Safe Products", f1d:"All toys and clothing are carefully selected for safety. No harmful materials, ever.",
+    f2t:"Affordable Prices", f2d:"Quality baby products that don't break the bank. Great value at every budget.",
+    f3t:"Wide Variety", f3d:"1000+ products across all categories — toys, clothing, essentials and gifts all in one store.",
+    f4t:"Friendly Staff", f4d:"Our team is always ready to help you find exactly what your child needs.",
+    big_txt:"Baby Garden",
+    rev_chip:"Happy Parents", rev_h2:"What Our Customers Say",
+    rev_sub:"Rated 4.9 ★ on Google · Ullal Upanagar's favourite baby store",
+    r1:'"Varieties of products to explore and buy — one shop for kids\' toys and all necessary things! Love this place."',
+    r2:'"Great baby toy shop with a wide variety of quality toys. Safe, colorful, and perfect for kids of all ages. Staff are friendly and helpful. Highly recommended!"',
+    r3:'"One of the best baby toy shops in the area. Clean store, well-organized, and lots of safe and creative toys. Customer service is outstanding!"',
+    r_google:"Google Review",
+    ib1l:"Location", ib1v:"Mathrushree Complex,\nUllal Main Road, Bangalore",
+    ib2l:"Open Hours", ib2v:"Mon – Sun\n10:00 AM – 10:00 PM",
+    ib3l:"Call / WhatsApp",
+    ib4l:"Google Rating", ib4v:"4.9 Stars\n19+ Reviews",
+    vis_chip:"Visit Us", vis_h2:"Come See Us\nIn Store!",
+    vi1l:"Address", vi1v:"Mathrushree Complex, #198 & 199,\nUllal Main Road, Jnananjyothinagar,\nUllal Upanagar, Bangalore – 560056",
+    vi2l:"Store Hours", vi2v:'Monday to Sunday: 10:00 AM – 10:00 PM<br><span style="color:var(--mint);font-size:0.82rem;">✓ Open all 7 days</span>',
+    vi3l:"Phone / WhatsApp",
+    cta_h:"Planning a visit? Call ahead! 📞",
+    cta_p:"We'll help you find the perfect product before you arrive — saving you time and making sure we have it in stock.",
+    map_btn:"🗺 Open Maps",
+    near1:"Near Amma Ashrama Circle", near1s:"Easy to find landmark",
+    near2:"Easy Parking Available", near2s:"Ullal Main Road",
+    ft_copy:"© 2025 Baby Garden, Ullal Upanagar · All Rights Reserved",
+    fl1:"Shop", fl2:"About", fl3:"Reviews", fl4:"Location"
+  },
+  kn: {
+    nav_cat:"ಅಂಗಡಿ", nav_why:"ನಮ್ಮ ಬಗ್ಗೆ", nav_rev:"ವಿಮರ್ಶೆಗಳು", nav_vis:"ಭೇಟಿ ನೀಡಿ", nav_cta:"📞 ಕರೆ ಮಾಡಿ",
+    hero_loc:"ಉಳ್ಳಾಲ ಮೇನ್ ರೋಡ್, ಬೆಂಗಳೂರು",
+    hero_h1a:"ನಿಮ್ಮ ಮಗುವಿಗೆ", hero_h1b:"ಬೇಕಾದದ್ದೆಲ್ಲ", hero_h1c:"ಇಲ್ಲಿದೆ ✨",
+    hero_sub:"ಆಟಿಕೆಗಳು, ಬಟ್ಟೆ, ಶಿಶು ಅವಶ್ಯಕತೆಗಳು ಮತ್ತು ಉಡುಗೊರೆಗಳು — ಒಂದೇ ಸೂರಿನ ಕೆಳಗೆ. ಉಳ್ಳಾಲ ಉಪನಗರದ ಕುಟುಂಬಗಳ ವಿಶ್ವಾಸಾರ್ಹ ಆಯ್ಕೆ.",
+    hero_btn1:"🛍️ ಸಂಗ್ರಹ ನೋಡಿ", hero_btn2:"ಅಂಗಡಿ ಹುಡುಕಿ →",
+    hs1:"Google\nರೇಟಿಂಗ್", hs2:"ಉತ್ಪನ್ನಗಳು\nಅಂಗಡಿಯಲ್ಲಿ", hs3:"ಪ್ರತಿ ದಿನ\nತೆರೆದಿರುತ್ತೇವೆ",
+    pc1:"ಮೃದು ಆಟಿಕೆಗಳು", pc1t:"ಹೊಸ ಆಗಮನ", pc2:"ಶಿಶು ಬಟ್ಟೆ", pc2t:"ಎಲ್ಲ ಗಾತ್ರ",
+    pc3:"ಆಹಾರ ಸಾಮಗ್ರಿ", pc3t:"ಉತ್ತಮ ಬ್ರ್ಯಾಂಡ್", pc4:"ಉಡುಗೊರೆ ಸೆಟ್", pc4t:"ಪರಿಪೂರ್ಣ ಉಡುಗೊರೆ",
+    cat_chip:"ನಾವು ಏನು ಮಾರುತ್ತೇವೆ", cat_h2:"ವರ್ಗದ ಪ್ರಕಾರ ಖರೀದಿಸಿ",
+    cat_sub:"ನವಜಾತ ಶಿಶುವಿನಿಂದ 10 ವರ್ಷದವರೆಗೆ — ಎಲ್ಲ ವಿಶ್ವಾಸಾರ್ಹ ಬ್ರ್ಯಾಂಡ್ಗಳು, ಒಂದೇ ಜಾಗದಲ್ಲಿ",
+    c1:"ಮೃದು ಆಟಿಕೆಗಳು", c1c:"ಟೆಡ್ಡಿ ಬೇರ್, ಗೊಂಬೆಗಳು ಮತ್ತು ಹೆಚ್ಚಿನವು",
+    c2:"ಶಿಶು ಬಟ್ಟೆ", c2c:"ನವಜಾತದಿಂದ 10 ವರ್ಷ",
+    c3:"ಶೈಕ್ಷಣಿಕ ಆಟಿಕೆಗಳು", c3c:"ಆಟದ ಮೂಲಕ ಕಲಿಕೆ",
+    c4:"ಆಹಾರ ಸಾಮಗ್ರಿಗಳು", c4c:"ಬಾಟಲ್, ಕಪ್ ಮತ್ತು ಬಿಬ್",
+    c5:"ಸ್ನಾನ ಮತ್ತು ಆರೈಕೆ", c5c:"ಸುರಕ್ಷಿತ ಮತ್ತು ಮೃದುವಾದ ಉತ್ಪನ್ನಗಳು",
+    c6:"ಉಡುಗೊರೆ ಸೆಟ್", c6c:"ಶಿಶು ಸ್ನಾನಕ್ಕೆ ಸೂಕ್ತ",
+    c7:"ರೈಡ್-ಆನ್ ಆಟಿಕೆಗಳು", c7c:"ಕಾರ್, ಬೈಕ್ ಮತ್ತು ಸ್ಕೂಟರ್",
+    c8:"ನರ್ಸರಿ ಅವಶ್ಯಕತೆಗಳು", c8c:"ಮಂಚ, ದಿಂಬು ಮತ್ತು ಹಾಸಿಗೆ",
+    why_chip:"ಬೇಬಿ ಗಾರ್ಡನ್ ಏಕೆ", why_h2:"ಪೋಷಕರು ಪ್ರೀತಿಸುತ್ತಾರೆ,\nಮಕ್ಕಳೂ ಸಹ 🌟",
+    f1t:"100% ಸುರಕ್ಷಿತ ಉತ್ಪನ್ನಗಳು", f1d:"ಎಲ್ಲ ಆಟಿಕೆ ಮತ್ತು ಬಟ್ಟೆಗಳನ್ನು ಸುರಕ್ಷತೆಗಾಗಿ ಎಚ್ಚರಿಕೆಯಿಂದ ಆಯ್ಕೆ ಮಾಡಲಾಗಿದೆ. ಹಾನಿಕಾರಕ ಸಾಮಗ್ರಿಗಳೇ ಇಲ್ಲ.",
+    f2t:"ಕೈಗೆಟಕುವ ಬೆಲೆ", f2d:"ಬಜೆಟ್ ಒಡೆಯದ ಗುಣಮಟ್ಟದ ಶಿಶು ಉತ್ಪನ್ನಗಳು. ಪ್ರತಿ ಬಜೆಟ್‌ನಲ್ಲಿ ಉತ್ತಮ ಮೌಲ್ಯ.",
+    f3t:"ವಿಶಾಲ ವೈವಿಧ್ಯ", f3d:"ಎಲ್ಲ ವರ್ಗಗಳಲ್ಲಿ 1000+ ಉತ್ಪನ್ನಗಳು — ಆಟಿಕೆ, ಬಟ್ಟೆ, ಅವಶ್ಯಕತೆ ಮತ್ತು ಉಡುಗೊರೆ ಎಲ್ಲ ಒಂದೇ ಅಂಗಡಿಯಲ್ಲಿ.",
+    f4t:"ಆತ್ಮೀಯ ಸಿಬ್ಬಂದಿ", f4d:"ನಿಮ್ಮ ಮಗುವಿಗೆ ಏನು ಬೇಕೆಂದು ಹುಡುಕಲು ನಮ್ಮ ತಂಡ ಯಾವಾಗಲೂ ಸಿದ್ಧ.",
+    big_txt:"ಬೇಬಿ ಗಾರ್ಡನ್",
+    rev_chip:"ಸಂತೃಪ್ತ ಪೋಷಕರು", rev_h2:"ನಮ್ಮ ಗ್ರಾಹಕರು ಏನು ಹೇಳುತ್ತಾರೆ",
+    rev_sub:"Google ನಲ್ಲಿ 4.9 ★ ರೇಟ್ · ಉಳ್ಳಾಲ ಉಪನಗರದ ಮೆಚ್ಚಿನ ಶಿಶು ಅಂಗಡಿ",
+    r1:'"ಅನ್ವೇಷಿಸಲು ಮತ್ತು ಖರೀದಿಸಲು ವಿವಿಧ ಉತ್ಪನ್ನಗಳು — ಮಕ್ಕಳ ಆಟಿಕೆ ಮತ್ತು ಅಗತ್ಯ ವಸ್ತುಗಳಿಗಾಗಿ ಒಂದೇ ಅಂಗಡಿ! ಈ ಜಾಗ ತುಂಬಾ ಇಷ್ಟ."',
+    r2:'"ಉತ್ತಮ ಗುಣಮಟ್ಟದ ಆಟಿಕೆಗಳ ವಿಶಾಲ ವೈವಿಧ್ಯದೊಂದಿಗೆ ಅದ್ಭುತ ಶಿಶು ಆಟಿಕೆ ಅಂಗಡಿ. ಸುರಕ್ಷಿತ, ಬಣ್ಣಮಯ ಮತ್ತು ಎಲ್ಲ ವಯಸ್ಸಿನ ಮಕ್ಕಳಿಗೆ ಸೂಕ್ತ. ಸಿಬ್ಬಂದಿ ಆತ್ಮೀಯ!"',
+    r3:'"ಈ ಪ್ರದೇಶದ ಅತ್ಯುತ್ತಮ ಶಿಶು ಆಟಿಕೆ ಅಂಗಡಿಗಳಲ್ಲಿ ಒಂದು. ಸ್ವಚ್ಛ, ಸುಸಂಘಟಿತ ಮಳಿಗೆ. ಗ್ರಾಹಕ ಸೇವೆ ಅತ್ಯುತ್ತಮ!"',
+    r_google:"Google ವಿಮರ್ಶೆ",
+    ib1l:"ಸ್ಥಳ", ib1v:"ಮಾತೃಶ್ರೀ ಕಾಂಪ್ಲೆಕ್ಸ್,\nಉಳ್ಳಾಲ ಮೇನ್ ರೋಡ್, ಬೆಂಗಳೂರು",
+    ib2l:"ತೆರೆದ ಸಮಯ", ib2v:"ಸೋಮ – ಭಾನು\n10:00 AM – 10:00 PM",
+    ib3l:"ಕರೆ / WhatsApp",
+    ib4l:"Google ರೇಟಿಂಗ್", ib4v:"4.9 ನಕ್ಷತ್ರ\n19+ ವಿಮರ್ಶೆಗಳು",
+    vis_chip:"ಭೇಟಿ ನೀಡಿ", vis_h2:"ನಮ್ಮ ಅಂಗಡಿಗೆ\nಬನ್ನಿ!",
+    vi1l:"ವಿಳಾಸ", vi1v:"ಮಾತೃಶ್ರೀ ಕಾಂಪ್ಲೆಕ್ಸ್, #198 & 199,\nಉಳ್ಳಾಲ ಮೇನ್ ರೋಡ್, ಜ್ಞಾನಾನಂದ ನಗರ,\nಉಳ್ಳಾಲ ಉಪನಗರ, ಬೆಂಗಳೂರು – 560056",
+    vi2l:"ಅಂಗಡಿ ಸಮಯ", vi2v:'ಸೋಮವಾರದಿಂದ ಭಾನುವಾರ: 10:00 AM – 10:00 PM<br><span style="color:var(--mint);font-size:0.82rem;">✓ ವಾರದ 7 ದಿನ ತೆರೆದಿರುತ್ತೇವೆ</span>',
+    vi3l:"ಫೋನ್ / WhatsApp",
+    cta_h:"ಭೇಟಿ ಯೋಜಿಸುತ್ತಿದ್ದೀರಾ? ಮೊದಲು ಕರೆ ಮಾಡಿ! 📞",
+    cta_p:"ನೀವು ಬರುವ ಮೊದಲು ಸರಿಯಾದ ಉತ್ಪನ್ನ ಹುಡುಕಲು ನಾವು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ — ಸ್ಟಾಕ್ ಖಚಿತಪಡಿಸಿ ಸಮಯ ಉಳಿಸಿ.",
+    map_btn:"🗺 Maps ತೆರೆಯಿರಿ",
+    near1:"ಅಮ್ಮ ಆಶ್ರಮ ಸರ್ಕಲ್ ಹತ್ತಿರ", near1s:"ಸುಲಭ ಹೆಗ್ಗುರುತು",
+    near2:"ಸುಲಭ ಪಾರ್ಕಿಂಗ್ ಲಭ್ಯ", near2s:"ಉಳ್ಳಾಲ ಮೇನ್ ರೋಡ್",
+    ft_copy:"© 2025 ಬೇಬಿ ಗಾರ್ಡನ್, ಉಳ್ಳಾಲ ಉಪನಗರ · ಎಲ್ಲ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ",
+    fl1:"ಅಂಗಡಿ", fl2:"ನಮ್ಮ ಬಗ್ಗೆ", fl3:"ವಿಮರ್ಶೆಗಳು", fl4:"ಸ್ಥಳ"
+  }
+};
+
+let lang = 'en';
+
+function toggleLang() {
+  lang = lang === 'en' ? 'kn' : 'en';
+  document.body.style.opacity = '0';
+  setTimeout(() => {
+    document.querySelectorAll('[data-i]').forEach(el => {
+      const k = el.getAttribute('data-i');
+      if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+    });
+    document.body.classList.toggle('lang-kn', lang === 'kn');
+    document.getElementById('pEN').classList.toggle('active', lang === 'en');
+    document.getElementById('pKN').classList.toggle('active', lang === 'kn');
+    document.documentElement.lang = lang;
+    document.body.style.opacity = '1';
+  }, 180);
+}
+
+document.body.style.transition = 'opacity 0.18s ease';
+
+// Tab active on nav links
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelectorAll('.nav-links a').forEach(x => x.style.color = '');
+    a.style.color = 'var(--rose)';
+  });
+});
+
+// Scroll animation for categories
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll('.cat-card');
+  
+  // init state
+  cards.forEach(card => card.classList.add('scroll-hidden'));
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('scroll-hidden');
+        entry.target.classList.add('scroll-visible');
+        observer.unobserve(entry.target); // optional: only animate once
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  cards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+    observer.observe(card);
+  });
+
+  // Interactive Visual Entrance & Parallax Tilt
+  const interactiveContainer = document.getElementById('interactive-visual-container');
+  const tiltWrapper = document.getElementById('interactive-tilt');
+  
+  if(interactiveContainer && tiltWrapper) {
+    const visualObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          tiltWrapper.classList.add('animate-in');
+          visualObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    visualObserver.observe(interactiveContainer);
+
+    interactiveContainer.addEventListener('mousemove', (e) => {
+      const rect = interactiveContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left; 
+      const y = e.clientY - rect.top; 
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const tiltX = ((y - centerY) / centerY) * -12; // max tilt 12deg
+      const tiltY = ((x - centerX) / centerX) * 12;
+
+      tiltWrapper.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+    });
+
+    interactiveContainer.addEventListener('mouseleave', () => {
+      tiltWrapper.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    });
+  }
+
+  // Review Cards Magic Entrance
+  const reviewCards = document.querySelectorAll('.review-card');
+  if(reviewCards.length > 0) {
+    const reviewObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('animate-magic');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    reviewCards.forEach(card => reviewObserver.observe(card));
+  }
+});
+
+// Preloader Logic
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  // Enhance reveal: Add a class to body once preloader is gone to stagger animations natively if wanted
+  setTimeout(() => {
+    preloader.classList.add('hidden');
+    document.body.classList.add('loaded'); // Triggers hero animations!
+    setTimeout(() => { preloader.style.display = 'none'; }, 800); // 800ms match transiton
+  }, 1000);
+});
+</script>
+</body>
+</html>
